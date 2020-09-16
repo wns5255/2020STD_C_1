@@ -1,0 +1,36 @@
+#include <iostream>
+#include <ios>
+using namespace std;
+
+int main()
+{
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	
+    int num = 0;
+
+    cin >> num;
+
+	if (num == 1)
+	{
+		cout << "*\n";
+	}
+	else
+	{
+		for (int i = 1; i <= num; ++i)
+		{
+			for (int j = 0; j < num / 2 + num % 2; ++j)
+			{
+				cout << "* ";
+			}
+			cout << "\n";
+			for (int j = 0; j < num / 2; ++j)
+			{
+				cout << " *";
+			}
+			cout << "\n";
+		}
+	}
+
+    return 0;
+}

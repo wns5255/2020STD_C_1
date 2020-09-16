@@ -1,0 +1,24 @@
+//for문_X보다 작은 수
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int a, b, c;
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	cin >> a >> c;
+	int* array = new int[a];
+
+
+	for (int i = 0; i < a; i++) {
+		cin >> b;
+		*(array + i) = b;
+	}
+	for (int k = 0; k < a; k++) {
+		if (*(array + k) < c) {
+			cout << *(array + k)<<" ";
+		}
+	}
+	
+	return 0;
+}

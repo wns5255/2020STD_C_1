@@ -1,0 +1,28 @@
+#include <iostream>
+#include <ios>
+using namespace std;
+
+int main()
+{
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	
+	int sum = 0;
+	int num, result;
+	
+
+	for (int i = 0; i < 5; i++)
+	{
+		cin >> num;
+		if (num < 40)
+			num = 40;
+
+		sum += num;
+	}
+
+	result = sum / 5;
+
+	cout << result << "\n";
+
+	return 0;
+}

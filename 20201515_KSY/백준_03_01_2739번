@@ -1,0 +1,14 @@
+//for문_구구단
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int a;
+	cin >> a;
+	
+	for (int k = 1; k < 10; k++) {
+		cout << a << " * " << k << " = " <<a * k << endl;
+	}
+
+	return 0;
+}

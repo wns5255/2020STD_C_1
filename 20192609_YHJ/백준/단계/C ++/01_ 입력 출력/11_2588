@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main(void)
+{
+	int A, B;
+	int W, X, Y, Z;
+
+	cin >> A >> B;
+
+	W = A * (B % 10);
+	X = A * ((B/10)%10);
+	Y = A * (B/100);
+	Z = W + X * 10 + Y * 100;
+	cout << W << endl;
+	cout << X << endl;
+	cout << Y << endl;
+	cout << Z << endl;
+
+	return 0;
+}

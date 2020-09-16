@@ -1,0 +1,551 @@
+/*
+
+// C_p.280_PointerOperation.c
+// Chapter 12 : 포인터의 이해
+// 12-2; 포인터와 관련 있는 연산자 : & 연산자와 * 연산자
+
+#include <stdio.h>
+
+int main(void)
+{
+	int num1 = 100, num2 = 100;
+	int* pnum;
+
+	pnum = &num1;
+	(*pnum) += 30;
+
+	pnum = &num2;
+	(*pnum) -= 30;
+
+	printf("num1:%d, num2:%d \n", num1, num2);
+	return 0;
+}
+
+*/
+
+// C_p.284_12.1_Question_2
+// Chapter 12 : 포인터의 이해
+/* int형 변수 num1과 num2를 선언과 동시에 각각 10과 20으로 초기화하고,
+int형 포인터 변수 ptr1과 ptr2를 선언하여 각각 num1과 num2를 가리키게 하자.
+그리고 이 상태에서 포인터 변수 ptr1과 ptr2를 이용해서 num1의 값을 10 증가시키고, num2의 값을 10 감소시키자.
+이제 두 포인터 변수 ptr1과 ptr2가 가리키는 대상을 서로 바꾸자.
+즉, 포인터 변수 ptr1이 num2를 가리키게 하고, 포인터 변수 ptr2가 num1을 가리키게 하자.
+그리고 마지막으로 ptr1과 ptr2가 가리키는 변수에 저장된 값을 출력하자.
+
+#include <stdio.h>
+
+int main(void)
+{
+	int num1 = 10, num2 = 20;
+
+	int* ptr1 = &num1;
+	int* ptr2 = &num2;
+	int* temp;
+
+	(*ptr1) += 10;
+	(*ptr2) -= 10;
+
+	temp = ptr1;
+	ptr1 = ptr2;
+	ptr2 = temp;
+
+	printf("%d %d \n", *ptr1, *ptr2);
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 13 : 포인터와 배열! 함께 이해하기
+// 13-1; 포인터와 배열의 관계
+// C_p.290_ArrayNameType.c
+
+#include <stdio.h>
+
+int main(void)
+{
+	int arr[3] = { 0,1,2 };
+	printf("배열의 이름 : %p \n", arr);
+	printf("첫 번째 요소 : %p \n", &arr[0]);
+	printf("두 번째 요소 : %p \n", &arr[1]);
+	printf("두 번째 요소 : %p \n", &arr[2]);
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 13 : 포인터와 배열! 함께 이해하기
+// 13-1; 포인터와 배열의 관계
+// C_p.290_ArrayNamePointerOperation.c 
+
+#include <stdio.h>
+
+int main(void)
+{
+	int arr1[3] = { 1,2,3 };
+	double arr2[3] = { 1.1, 2.2, 3.3 };
+
+	printf("% d % g \n", *arr1, *arr2);
+		* arr1 += 100;
+		*arr2 += 120.5;
+		printf("%d %g \n", arr1[0], arr2[0]);
+		return 0;
+}
+
+*/
+
+/*
+
+// Chapter 13 : 포인터와 배열! 함께 이해하기
+// 13-1; 포인터와 배열의 관계
+// C_p.294_ArrayNameIsPointer.c 
+
+#include <stdio.h>
+
+int main(void)
+{
+	int arr[3] = { 15, 25, 35 };
+	int* ptr = &arr[0];
+
+	printf("%d %d \n", ptr[0], arr[0]);
+	printf("%d %d \n", ptr[1], arr[1]);
+	printf("%d %d \n", ptr[2], arr[2]);
+	printf("%d %d \n", *ptr, *arr);
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 13 : 포인터와 배열! 함께 이해하기
+// 13-2; 포인터 연산
+// C_p.295_PointerOperationResult.c 
+
+#include <stdio.h>
+
+int main(void)
+{
+	int* ptr1 = 0x0010;
+	double* ptr2 = 0x0010;
+
+	printf("%p %p \n", ptr1 + 1, ptr1 + 2);
+	printf("%p %p \n", ptr2 + 1, ptr2 + 2);
+
+	printf("%p %p \n", ptr1, ptr2);
+	ptr1++;
+	ptr2++;
+	printf("%p %p \n", ptr1, ptr2);
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 13 : 포인터와 배열! 함께 이해하기
+// 13-2; 포인터 연산
+// C_p.297_PointerBaseArrayAccess.c
+
+#include <stdio.h>
+
+int main(void)
+{
+	int arr[3] = { 11, 22, 33 };
+	int* ptr = arr;
+	printf("%d %d %d \n", *ptr, *(ptr + 1), *(ptr + 2));
+
+	printf("%d ", *ptr); ptr++;
+	printf("%d ", *ptr); ptr++;
+	printf("%d ", *ptr); ptr--;
+	printf("%d ", *ptr); ptr--;
+	printf("%d ", *ptr); printf("\n");
+	return 0;
+}
+
+*/
+
+//Question 13-1 [포인터를 이용한 배열의 접근]
+/* 문제 1
+길이가 5인 int형 배열 arr을 선언하고 이를 1,2,3,4,5로 초기화한 다음, 이 배열의 첫 번째 요소를 가리키는 포인터 변수 ptr을 선언한다.
+그 다음 포인터 변수 ptr에 저장된 값을 증가시키는 형태의 연산을 기반으로 배열요소에 접근하면서 모든 배열요소의 값을 2씩 증가시키고,
+정상적으로 증가가 이뤄졌는지 확인하는 예제를 작성해보자.
+
+#include <stdio.h>
+
+int main(void)
+{
+	int arr[5] = { 1,2,3,4,5 };
+	int* ptr = arr;
+	for (int i = 0;i < 5;i++)
+	{
+		*(ptr++) += 2;
+		printf("%d ", arr[i]);
+	}
+	return 0;
+}
+*/
+
+/* 문제 2
+문제 1에서는 포인터 변수 ptr에 저장된 값을 변경시켜가면서 배열요소에 접근하라고 하였다.
+그런데 이번에는 포인터 변수 ptr에 저장된 값을 변경시키지 않고, ptr을 대상으로 덧셈연산을 하여,
+그 결과로 반환되는 주소 값을 통해서 모든 배열요소에 접근하여 값을 2씩 증가시키는 예제를 작성해보자.
+
+#include <stdio.h>
+
+int main(void)
+{
+	int arr[5] = { 1,2,3,4,5 };
+	int* ptr = arr;
+
+	for (int i = 0; i < 5;i++)
+	{
+		*(ptr + i) += 2;
+		printf("%d ", arr[i]);
+	}
+	return 0;
+}
+*/
+
+/* 문제 3
+길이가 5인 int형 배열 arr을 선언하고 이를 1,2,3,4,5로 초기화한 다음, 이 배열의 마지막 요소를 가리키는 포인터 변수 ptr을 선언한다.
+그 다음 포인터 변수 ptr에 저장된 값을 감소시키는 형태의 연산을 기반으로 모든 배열요소에 접근하여,
+배열에 저장된 모든 정수를 더하여 그 결과를 출력하는 프로그램을 작성해보자.
+
+#include <stdio.h>
+
+int main(void)
+{
+	int arr[5] = { 1,2,3,4,5 };
+	int* ptr = &arr[4];
+	int sum = 0;
+
+	for (int i = 0;i<5;i++)
+	{
+		sum += *(ptr--);
+	}
+
+	printf("%d", sum);
+	return 0;
+}
+*/
+
+/* 문제 4
+길이가 6인 int형 배열 arr을 선언하고 이를 1,2,3,4,5,6으로 초기화한 다음,
+배열에 저장된 값의 순서가 6,5,4,3,2,1이 되도록 변경하는 예제를 작성해보자.
+단, 배열의 앞과 뒤를 가리키는 포인터 변수 두 개를 선언해서 이를 활용하여 저장된 값의 순서를 뒤바꿔야 한다.
+
+#include <stdio.h>
+
+int main(void)
+{
+	int arr[6] = { 1,2,3,4,5,6 };
+	int* fptr = &arr[0];
+	int* bptr = &arr[5];
+	int temp;
+
+	for (int i = 0;i < 3;i++)
+	{
+		temp = *fptr;
+		*fptr = *bptr;
+		*bptr = temp;
+		fptr += 1;
+		bptr -= 1;
+	}
+
+	for (int i = 0;i < 6;i++)
+		printf("%d ", arr[i]);
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 13 : 포인터와 배열! 함께 이해하기
+// 13-3; 상수 형태의 문자열을 가리키는 포인터
+// C_p.302_TwoStringType.c
+
+#include <stdio.h>
+
+int main(void)
+{
+	char str1[] = "My String";
+	char* str2 = "Your String";
+	printf("%s %s \n", str1, str2);
+
+	str2 = "Our String";
+	printf("%s %s \n", str1, str2);
+
+	str1[0] = 'X';
+	str2[0] = 'X';
+	printf("%s %s \n", str1, str2);
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 13 : 포인터와 배열! 함께 이해하기
+// 13-4; 포인터 변수로 이뤄진 배열 : 포인터 배열
+// C_p.304_PointerArray.c
+
+#include <stdio.h>
+
+int main(void)
+{
+	int num1 = 10, num2 = 20, num3 = 30;
+	int* arr[3] = { &num1, &num2,&num3 };
+
+	printf("%d \n", *arr[0]);
+	printf("%d \n", *arr[1]);
+	printf("%d \n", *arr[2]);
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 13 : 포인터와 배열! 함께 이해하기
+// 13-4; 포인터 변수로 이뤄진 배열 : 포인터 배열
+// C_p.305_StringArray.c
+
+#include <stdio.h>
+
+int main(void)
+{
+	char* strArr[3] = { "Simple", "String", "Array" };
+	printf("%s \n", strArr[0]);
+	printf("%s \n", strArr[1]);
+	printf("%s \n", strArr[2]);
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 14 : 포인터와 함수에 대한 이해
+// 14-1; 함수의 인자로 배열 전달하기
+// C_p.312_ArrayParam.c
+
+#include <stdio.h>
+
+void ShowArayElem(int* param, int len)
+{
+	int i;
+	for (i = 0;i < len; i++)
+		printf("%d ", param[i]);
+	printf("\n");
+}
+
+int main(void)
+{
+	int arr1[3] = { 1,2,3 };
+	int arr2[5] = { 4,5,6,7,8 };
+	ShowArayElem(arr1, sizeof(arr1) / sizeof(int));
+	ShowArayElem(arr2, sizeof(arr2) / sizeof(int));
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 14 : 포인터와 함수에 대한 이해
+// 14-1; 함수의 인자로 배열 전달하기
+// C_p.312_ArrayParamAccess.c
+
+#include <stdio.h>
+
+void ShowArayElem(int* param, int len)
+{
+	int i;
+	for (i = 0;i < len;i++)
+		printf("%d ", param[i]);
+	printf("\n");
+}
+
+void AddArayElem(int* param, int len, int add)
+{
+	int i;
+	for (i = 0;i < len;i++)
+		param[i] += add;
+}
+
+int main(void)
+{
+	int arr[3] = { 1,2,3 };
+	AddArayElem(arr, sizeof(arr) / sizeof(int), 1);
+	ShowArayElem(arr, sizeof(arr) / sizeof(int));
+
+	AddArayElem(arr, sizeof(arr) / sizeof(int), 2);
+	ShowArayElem(arr, sizeof(arr) / sizeof(int));
+
+	AddArayElem(arr, sizeof(arr) / sizeof(int), 3);
+	ShowArayElem(arr, sizeof(arr) / sizeof(int));
+	return 0;
+}
+
+*/
+
+
+/*
+
+// Chapter 14 : 포인터와 함수에 대한 이해
+// 14-2; Call-by-value vs Call-by-reference
+// C_p.315_CallByValueSwap.c
+
+#include <stdio.h>
+
+void Swap(int n1, int n2)
+{
+	int temp = n1;
+	n1 = n2;
+	n2 = temp;
+	printf("n1 n2 : %d %d \n", n1, n2);
+}
+
+int main(void)
+{
+	int num1 = 10;
+	int num2 = 20;
+	printf("num1 num2 : %d %d \n", num1, num2);
+
+	Swap(num1, num2);
+	printf("num1 num2 : %d %d \n", num1, num2);
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 14 : 포인터와 함수에 대한 이해
+// 14-2; Call-by-value vs Call-by-reference
+// C_p.317_CallByRefSwap.c
+
+#include <stdio.h>
+
+void Swap(int* ptr1, int* ptr2)
+{
+	int temp = *ptr1;
+	*ptr1 = *ptr2;
+	*ptr2 = temp;
+}
+
+int main(void)
+{
+	int num1 = 10;
+	int num2 = 20;
+	printf("num1 num2 : %d %d \n", num1, num2);
+	Swap(&num1, &num2);
+	printf("num1 num2 : %d %d \n", num1, num2);
+	return 0;
+}
+
+*/
+
+//Question 14-1 [Call-by-value vs Call-by-reference]
+/* 문제 1
+변수 num에 저장된 값의 제곱을 계산하는 함수를 정의하고, 이를 호출하는 main 함수를 작성해 보자.
+단, 여기서는 다음 두 가지 형태로 함수를 정의해야 한다.
+* Call-by-value 기반의 SquareByValue 함수
+* Call-by-reference 기반의 SquareByReference 함수 
+
+SquareByValue 함수는 인자로 전달된 값의 제곱을 반환해야 하며,
+SquareByReference 함수는 정수가 저장되어있는 변수의 주소 값을 인자로 받아서 해당 변수에 저장된 값의 제곱을 그 변수에 다시 저장해야 한다.
+
+#include <stdio.h>
+
+int SquareByValue(int num)
+{
+	return num * num;
+}
+
+int SquareByReference(int * ptr)
+{
+	int num = *ptr;
+	*ptr = num*num;
+}
+
+int main(void)
+{
+	int num = 10;
+	printf("%d \n", SquareByValue(num));
+	SquareByReference(&num);
+	printf("%d \n", num);
+	return 0;
+}
+
+*/
+
+/* 문제 2
+세 변수에 저장된 값을 서로 뒤바꾸는 함수를 정의해보자. 예를 들어서 함수의 이름이 Swap3라 하면, 다음의 형태로 함수가 호출되어야 한다.
+Swap3(&num1, &num2, &num3);
+
+그리고 함수호출의 결과로 num1에 저장된 값은 num2에, num2에 저장된 값은 num3에, 그리고 num3에 저장된 값은 num1에 저장되어야 한다.
+
+#include <stdio.h>
+
+void Swap3(int*ptr1, int*ptr2, int*ptr3)
+{
+	int temp = *ptr3;
+	*ptr3 = *ptr2;
+	*ptr2 = *ptr1;
+	*ptr1 = temp;
+}
+
+int main(void)
+{
+	int num1 = 10, num2 = 20, num3 = 30;
+	Swap3(&num1, &num2, &num3);
+	printf("%d %d %d \n", num1, num2, num3);
+	return 0;
+}
+
+*/
+
+// 14-3; 포인터 대상의 const 선언
+// 문제 14-2 [const 선언에 대한 추가적인 이해]
+
+/* 문제 1
+아래에 정의된 함수를 보자. 인자로 전달되는 정보를 참조하여 int형 배열요소 전체를 출력하는 함수이다.
+
+void ShowAllData(const int* arr, int len)
+{
+	int i;
+	for (i = 0;i < len;i++)
+		printf("%d ", arr[i]);
+}
+위 함수의 매개변수 선언에서 매개변수 arr을 대상으로 const 선언을 한 이유가 무엇이겠는가?
+이 함수를 정의한 사람의 의도를 이야기해 보자.
+
+- 문제에서 정의한 함수의 기능은 인자로 전달된 배열의 전체요소를 출력하는 것. 따라서 프로그래머가 배열요소의 값을 바꾸는 일은 없어야 한다.*/
+
+/* 문제 2
+아래의 예제는 한 가지 지적할만한 사항을 지니고 있다. 그것이 무엇인지 이야기해 보자.
+특히 이와 관련해서 ShowData 함수를 유심히 관찰하기 바란다.
+
+void ShowData(const int* ptr)
+{
+	int* rptr = ptr;
+	printf("%d \n", *rptr);
+	*rptr = 20;
+}
+
+int main(void)
+{
+	int num = 10;
+	int* ptr = &num;
+	ShowData(ptr);
+	return 0;
+}
+
+rptr을 이용해서 ptr이 가리키는 변수에 저장된 값을 변경할 수 있는 상황이 되었다.*/
+

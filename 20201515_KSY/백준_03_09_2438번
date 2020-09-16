@@ -1,0 +1,20 @@
+//for문_별 찍기 - 1
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int a;
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+	cin >> a;
+
+	for (int i = 0; i < a; i++) {
+		for (int k = 0; k <= i; k++) {
+			cout << "*";
+		}
+		cout << "\n";
+	}
+
+	return 0;
+}

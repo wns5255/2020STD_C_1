@@ -1,0 +1,22 @@
+/* 두 정수 a, b. 이 두 정수는 0부터 10 사이의 숫자. a와 b를 출력하면 a+b가 출력됨.*/
+
+#include <iostream>
+using namespace std;
+
+int main(void)
+{
+	int a, b, sum;
+
+	cout << "1 이상, 10 미만인 두 정수를 입력해주세요. : ";
+	cin >> a >> b;
+
+	if ((a > 0 && a < 10) && (b > 0 && b < 10))
+	{
+		sum = a + b;
+		cout << "두 정수의 합은 " << sum << " 입니다." << endl;
+	}
+	else
+		cout << "잘못된 정수를 입력하셨습니다. 프로그램을 종료합니다." << endl;
+
+	return 0;
+}

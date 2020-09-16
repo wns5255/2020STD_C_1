@@ -1,0 +1,9 @@
+//입출력과 사칙연산_고양이
+#include <iostream>
+using namespace std;
+int main(void){
+    cout<<"\\    /\\"<<endl;
+    cout<<" )  ( ')"<<endl;
+    cout<<"(  /  )"<<endl;
+    cout<<" \\(__)|";
+}

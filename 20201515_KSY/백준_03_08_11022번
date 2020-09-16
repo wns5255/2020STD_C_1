@@ -1,0 +1,19 @@
+//for문_A+B-8
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int a, b, c;
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+	cin >> a;
+
+	for (int i = 0; i <a; i++) {
+		cin >> b >> c;
+		cout << "Case #" << i + 1 << ": " 
+			 << b <<" + "<< c <<" = " << b+c << endl;
+	}
+
+	return 0;
+}

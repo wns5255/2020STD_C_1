@@ -1,0 +1,27 @@
+//실습_상근날드
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+	int a, b, c, d, e, hamburger = 0, cola;
+	cin >> a >> b >> c >> d >> e;
+	
+	if (a > b)
+		hamburger = b;
+	else
+		hamburger = a;
+	if (hamburger > c)
+		hamburger = c;
+
+	if (d > e)
+		cola = e;
+	else
+		cola = d;
+	cout << hamburger + cola - 50 << "\n";
+
+	return 0;
+}

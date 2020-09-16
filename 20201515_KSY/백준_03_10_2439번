@@ -1,0 +1,18 @@
+//for문_별 찍기 - 2
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int a;
+	cin >> a;
+	for (int i = 1; i <= a; i++) {
+		for (int p = a; p > i; p--) {
+			cout <<' ';
+		}
+		for (int k = 1; k <=i; k++) {
+			cout <<'*';
+		}
+		cout << endl;
+	}
+
+}

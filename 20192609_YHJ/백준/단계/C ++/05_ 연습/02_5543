@@ -1,0 +1,32 @@
+#include <iostream>
+#include <ios>
+using namespace std;
+
+int main()
+{
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	
+	int burgers[3];
+	int beverages[2];
+	int min_burgerPrice = 2000;
+	int min_beveragePrice = 2000;
+
+	for (int i = 0; i < 3;i++)
+	{
+		cin >> burgers[i];
+		if (burgers[i] < min_burgerPrice)
+			min_burgerPrice = burgers[i];
+	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		cin >> beverages[i];
+		if (beverages[i] < min_beveragePrice)
+			min_beveragePrice = beverages[i];
+	}
+
+	cout << (min_burgerPrice + min_beveragePrice) - 50 << "\n";
+
+	return 0;
+}

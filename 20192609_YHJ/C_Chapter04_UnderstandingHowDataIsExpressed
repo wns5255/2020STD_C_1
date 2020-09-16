@@ -1,0 +1,163 @@
+/*
+
+// C_p.085_Notation.c
+// Chapter 4 : 데이터 표현 방식의 이해
+// 04-1; 컴퓨터가 데이터를 표현하는 방식
+
+#include <stdio.h>
+
+int main(void)
+{
+	int num1 = 0xA7, num2 = 0x43;
+	int num3 = 032, num4 = 024;
+
+	printf("0x47의 10진수 정수 값 : %d \n", num1);
+	printf("0x43의 10진수 정수 값 : %d \n", num2);
+	printf(" 032의 10진수 정수 값 : %d \n", num3);
+	printf(" 024의 10진수 정수 값 : %d \n", num4);
+
+	printf("%d-%d = %d \n", num1, num2, num1 - num2);
+	printf("%d+%d = %d \n", num3, num4, num3 + num4);
+	return 0;
+}
+
+*/
+
+/*
+
+// C_p.091_FloatError.c
+// Chapter 4 : 데이터 표현 방식의 이해
+// 04-2; 정수와 실수의 표현방식
+
+#include <stdio.h>
+
+int main(void)
+{
+	int i;
+	float num = 0.0;
+
+	for (i = 0;i < 100;i++)
+		num += 0.1;
+
+	printf("0.1을 100번 더한 결과 : %f \n", num);
+	return 0;
+}
+
+*/
+
+/*
+
+// C_p.093_BitAndOperation.c
+// Chapter 4 : 데이터 표현 방식의 이해
+// 04-3; 비트 연산자_&연산자
+
+#include <stdio.h>
+
+int main(void)
+{
+	int num1 = 15;   // 00000000 00000000 0000000 00001111
+	int num2 = 20;   // 00000000 00000000 0000000 00010100
+	int num3 = num1 & num2; //num1과 num2의 비트단위 &연산
+	printf("AND 연산의 결과 : %d \n", num3);
+	return 0;
+}
+
+*/
+
+/*
+
+// C_p.095_BitOrOperation.c
+// Chapter 4 : 데이터 표현 방식의 이해
+// 04-3; 비트 연산자_| 연산자
+
+#include <stdio.h>
+
+int main(void)
+{
+	int num1 = 15;	// 00000000 00000000 00000000 00001111
+	int num2 = 20;	// 00000000 00000000 00000000 00010100
+	int num3 = num1 | num2;
+	printf("OR 연산의 결과 : %d \n", num3);
+	return 0;
+}
+
+*/
+
+/*
+
+// C_p.096_BitXorOperation.c
+// Chapter 4 : 데이터 표현 방식의 이해
+// 04-3; 비트 연산자_^ 연산자
+
+#include <stdio.h>
+
+int main(void)
+{
+	int num1 = 15;	// 00000000 00000000 00000000 00001111
+	int num2 = 20;	// 00000000 00000000 00000000 00010100
+	int num3 = num1 ^ num2;
+	printf("XOR 연산의 결과 : %d \n", num3);
+	return 0;
+}
+  
+*/
+
+/*
+
+// C_p.097_BitNotOperation.c
+// Chapter 4 : 데이터 표현 방식의 이해
+// 04-3; 비트 연산자_~ 연산자
+
+#include <stdio.h>
+
+int main(void)
+{
+	int num1 = 15;	//00000000 00000000 00000000 00001111
+	int num2 = ~num1;
+	printf("NOT 연산의 결과 : %d \n", num2);
+	return 0;
+}
+
+*/
+
+/*
+
+// C_p.098_BitLeftShift.c
+// Chapter 4 : 데이터 표현 방식의 이해
+// 04-3; 비트 연산자_<< 연산자
+
+#include <stdio.h>
+
+int main(void)
+{
+	int num = 15;	//00000000 00000000 00000000 00001111
+
+	int result1 = num << 1;
+	int result2 = num << 2;
+	int result3 = num << 3;
+
+	printf("1칸 이동 결과 : %d \n", result1);
+	printf("2칸 이동 결과 : %d \n", result2);
+	printf("3칸 이동 결과 : %d \n", result3);
+	return 0;
+}
+
+*/
+
+/*
+
+// C_p.098_BitLeftShift.c
+// Chapter 4 : 데이터 표현 방식의 이해
+// 04-3; 비트 연산자_>> 연산자
+
+#include <stdio.h>
+
+int main(void)
+{
+	int num = -16;	//11111111 11111111 11111111 11110000
+	printf("2칸 오른쪽 이동의 결과 : %d \n", num >> 2);
+	printf("3칸 오른쪽 읻ㅇ의 결과 : %d \n", num >> 3);
+	return 0;
+}
+
+*/

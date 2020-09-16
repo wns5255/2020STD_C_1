@@ -1,0 +1,29 @@
+#include <iostream>
+#include <ios>
+using namespace std;
+
+int main()
+{
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+	int num = 0;
+
+	cin >> num;
+
+	int* p = new int[num];
+	int a, b;
+
+	for (int i = 0; i < num; i++)
+	{
+		cin >> a >> b;
+		p[i] = a + b;
+	}
+
+	for (int i = 0; i < num; i++)
+	{
+		cout << p[i] << "\n";
+	}
+
+	return 0;
+}

@@ -1,0 +1,17 @@
+//for문_N 찍기
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int a;
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+	cin >> a;
+
+	for (int i = 1; i <= a; i++) {
+		cout << i <<"\n";
+	}
+
+	return 0;
+}

@@ -1,0 +1,31 @@
+#include <iostream>
+#include <ios>
+using namespace std;
+
+int main()
+{
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	
+	int num, firstNum, secondNum, sumNum, result, cycle;
+	
+	cin >> num;
+
+	result = num;
+	cycle = 0;
+
+	while (1)
+	{
+		firstNum = result / 10;
+		secondNum = result % 10;
+		sumNum = firstNum + secondNum;
+		result = (secondNum * 10) + (sumNum % 10);
+		cycle += 1;
+
+		if(result == num)
+			break;
+	}
+	cout << cycle << "\n";
+
+	return 0;
+}

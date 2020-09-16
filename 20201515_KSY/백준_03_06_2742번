@@ -1,0 +1,17 @@
+//for문_기찍N
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int a;
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+	cin >> a;
+
+	for (int i = a; i > 0; i--) {
+		cout << i <<"\n";
+	}
+
+	return 0;
+}

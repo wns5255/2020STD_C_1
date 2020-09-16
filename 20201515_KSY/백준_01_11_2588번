@@ -1,0 +1,13 @@
+//입출력과 사칙연산_곱셈
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int A, B;
+	cin >> A >>B;
+	cout << A*(B%10) << endl;
+	cout << A* ((B/10)%10) << endl;
+	cout << A * (B / 100) << endl;
+	cout << A*B << endl;
+	
+}

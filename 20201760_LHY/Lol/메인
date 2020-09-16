@@ -1,0 +1,18 @@
+#include<iostream>
+#include"챔프.h"
+#include"챔프기본.h"
+using namespace std;
+
+int main(void)
+{
+	제드 u1;
+	마스터이 u2;
+	u1.baseattack(u2);
+	u1.baseattack(u2);
+	u2.Qattack(u1);
+	u2.Wattack();
+	u2.Eattack();
+	u1.Qattack(u2);
+	u2.showdata();
+	u1.showdata();
+}

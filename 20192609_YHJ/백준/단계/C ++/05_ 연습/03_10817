@@ -1,0 +1,49 @@
+#include <iostream>
+#include <ios>
+using namespace std;
+
+int main()
+{
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	
+	int a,b,c,mid;
+
+	cin >> a >> b >> c;
+
+	if (a > b)
+	{
+		if (c > a)
+			mid = a;
+		else if (c > b)
+			mid = c;
+		else
+			mid = b;
+		if (b > c)
+			mid = b;
+		else if (a > c)
+			mid = c;
+		else
+			mid = a;
+	}
+
+	else
+	{
+		if (c > b)
+			mid = b;
+		else if (c > a)
+			mid = c;
+		else
+			mid = a;
+		if (a > c)
+			mid = a;
+		else if (b > c)
+			mid = c;
+		else
+			mid = b;
+	}
+
+	cout << mid << "\n";
+
+	return 0;
+}

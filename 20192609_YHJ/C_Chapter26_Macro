@@ -1,0 +1,258 @@
+/*
+
+// Chapter 26 : 매크로와 선행처리기
+// 26-2; 대표적인 선행처리 명령문
+// C_p.559_MacroConst.c
+
+#include <stdio.h>
+
+#define NAME	"홍길동"
+#define AGE		24
+#define PRINT_ADDR	puts("주소 : 경기도 용인시 \n");
+
+int main(void)
+{
+	printf("이름 : %s \n", NAME);
+	printf("나이 : %d \n", AGE);
+	PRINT_ADDR;
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 26 : 매크로와 선행처리기
+// 26-2; 대표적인 선행처리 명령문
+// C_p.560_MacroFunction.c
+
+#include <stdio.h>
+#define SQUARE(X) X*X
+
+int main(void)
+{
+	int num = 20;
+
+	printf("Square of num : %d \n", SQUARE(num));
+	printf("Square of -5 : %d \n", SQUARE(-5));
+	printf("Square of 2.5 : %g \n", SQUARE(2.5));
+
+	printf("Square of 3+2 : %d \n", SQUARE(3 + 2));
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 26 : 매크로와 선행처리기
+// 26-2; 대표적인 선행처리 명령문
+// C_p.563_MacroUseMacro.c
+
+#include <stdio.h>
+#define PI 3.14
+#define PRODUCT(X,Y) ((X)*(Y))
+#define CIRCLE_AREA(R) (PRODUCT((R),(R))*PI)
+
+int main(void)
+{
+	double rad = 2.1;
+	printf("반지름 %g인 원의 넓이 : %g \n", rad, CIRCLE_AREA(rad));
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 26 : 매크로와 선행처리기
+// 26-3; 조건부 컴파일(Conditional Compilation)을 위한 매크로
+// C_p.567_if_endif.c
+
+#include <stdio.h>
+#define ADD	1
+#define MIN	0
+
+int main(void)
+{
+	int num1, num2;
+	printf("두 개의 정수 입력 : ");
+	scanf_s("%d %d", &num1, &num2);
+
+#if ADD
+	printf("%d + %d = %d \n", num1, num2, num1 + num2);
+#endif
+
+#if MIN
+	printf("%d - %d = %d \n", num1, num2, num1 - num2);
+#endif
+
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 26 : 매크로와 선행처리기
+// 26-3; 조건부 컴파일(Conditional Compilation)을 위한 매크로
+// C_p.568_ifdef_endif.c
+
+#include <stdio.h>
+#define MIN 0
+
+int main(void)
+{
+	int num1, num2;
+	printf("두 개의 정수 입력 : ");
+	scanf_s("%d %d", &num1, &num2);
+
+#ifdef ADD
+	printf("%d + %d = %d \n", num1, num2, num1 + num2);
+#endif
+
+	#ifdef MIN
+		printf("%d - %d = %d \n", num1, num2, num1 - num2);
+#endif
+
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 26 : 매크로와 선행처리기
+// 26-3; 조건부 컴파일(Conditional Compilation)을 위한 매크로
+// C_p.569_else_endif.c
+
+#include <stdio.h>
+#define HIT_NUM 5
+
+int main(void)
+{
+#if HIT_NUM==5
+	puts("매크로 상수 HIT_NUM은 현재 5입니다.");
+#else
+	puts("매크로 상수 HIT_NUM은 현재 5가 아닙니다.");
+#endif
+
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 26 : 매크로와 선행처리기
+// 26-3; 조건부 컴파일(Conditional Compilation)을 위한 매크로
+// C_p.570_elif_endif.c
+
+#include <stdio.h>
+#define HIT_NUM 7
+
+int main(void)
+{
+#if HIT_NUM==5
+	puts("매크로 상수 HIT_NUM은 현재 5입니다.");
+#elif HIT_NUM==6
+	puts("매크로 상수 HIT_NUM은 현재 6입니다.");
+#elif HIT_NUM==7
+	puts("매크로 상수 HIT_NUM은 현재 7입니다.");
+#else puts("매크로 상수 HIT_NUM은 5,6,7은 확실히 아닙니다.");
+#endif
+
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 26 : 매크로와 선행처리기
+// 26-4; 매개변수의 결합과 문자열화
+// C_p.573_MacroOpToString.c
+
+#include <stdio.h>
+#define STRING_JOB(A,B) #A"의 직업은 " #B "입니다."
+
+int main(void)
+{
+	printf("%s \n", STRING_JOB(이동춘, 나무꾼));
+	printf("%s \n", STRING_JOB(한상순, 사냥꾼));
+	return 0;
+}
+
+*/
+
+/*
+
+// Chapter 26 : 매크로와 선행처리기
+// 26-4; 매개변수의 결합과 문자열화
+// C_p.574_UnivStdNum.c
+
+#include <stdio.h>
+#define STNUM(Y,S,P)	((Y)*100000+(S)*1000+(P))
+
+int main(void)
+{
+	printf("학번 : %d \n", STNUM(10, 65, 175));
+	printf("학번 : %d \n", STNUM(10, 65, 075));
+	return 0;
+}
+
+*/
+
+// 문제 26-1 [매크로의 정의]
+
+/* 문제 1
+세 개의 정수를 인자로 받아서 이 세 정수의 덧셈결과와 곱셈결과를 반환하는 매크로 함수를 각각 정의해보자.
+
+#include <stdio.h>
+#define ADD(x,y,z) ((x)+(y)+(z))
+#define MUL(x,y,z) ((x)*(y)*(z))
+
+int main(void)
+{
+	printf("3+4+5 = %d \n", ADD(3, 4, 5));
+	printf("3*4*5 = %d \n", MUL(3, 4, 5));
+	return 0;
+}
+
+*/
+
+/* 문제 2
+원주율 PI를 매크로 상수로 정의하고 이를 이용해서 원의 넓이를 구하는 매크로 함수 AREA를 정의해보자.
+
+#include <stdio.h>
+#define PI 3.1415
+#define AREA(r) ((r)*(r)*PI)
+
+int main(void)
+{
+	double rad;
+	printf("원의 반지름 입력 : ");
+	scanf_s("%lf", &rad);
+	printf("원의 넓이 : %g \n", AREA(rad));
+	return 0;
+}
+ 
+*/
+
+/* 문제 3
+두 값의 크기를 비교하여 큰 값을 반환하는 매크로 함수 MAX를 정의해보자.
+참고로 이는 조건 연산자를 이용해서 정의하는 것이 바람직하다.
+
+#include <stdio.h>
+#define MAX(a,b)	((a)>(b)?(a):(b))
+
+int main(void)
+{
+	int num1, num2;
+	printf("두 개의 정수 입력 : ");
+	scanf_s("%d %d", &num1, &num2);
+	printf("%d가(이) 더 큰 수 입니다. \n", MAX(num1, num2));
+	return 0;
+}
+
+*/
