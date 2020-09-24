@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main(void)
+{
+	int A, B, result;
+
+	cin >> A >> B;
+
+	if (A > 0 && B < 10)
+		result = A - B;
+
+	cout << result;
+
+	return 0;
+}
