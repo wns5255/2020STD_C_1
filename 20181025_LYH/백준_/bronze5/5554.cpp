@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int maain(void)
+int main(void)
 {
 	int seconds[4];
 	int total = 0;
