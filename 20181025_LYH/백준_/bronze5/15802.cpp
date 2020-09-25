@@ -1,3 +1,5 @@
+// 타노스
+
 #include <iostream>
 #include <random>
 using namespace std;
