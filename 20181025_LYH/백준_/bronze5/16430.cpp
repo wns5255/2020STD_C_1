@@ -15,3 +15,4 @@ int main(void)
 	cout << P << " " << Q;
 	return 0;
 }
+
