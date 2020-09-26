@@ -18,3 +18,4 @@ int main(void)
 	cout << bx << " " << by << " " << bz;
 	return 0;
 }
+
