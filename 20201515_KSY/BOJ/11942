@@ -1,4 +1,5 @@
-/*#11942
+/*
+#11942
 Problem
 고려대학교 출력하기
 
@@ -6,7 +7,8 @@ Input
 없음
 
 Output
-고려대학교*/
+고려대학교
+*/
 
 #include <iostream>
 using namespace std;
