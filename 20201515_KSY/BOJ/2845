@@ -1,0 +1,27 @@
+/*#2845
+Problem
+파티가 끝나고 난 뒤 참가자 인원 수 파악
+
+Input
+a : 제곱미터 당 사람의 수
+b : 파티장의 넓이
+c : 신문1 기사에 실린 참가자의 수
+d : 신문2 기사에 실린 참가자의 수
+e : 신문3 기사에 실린 참가자의 수
+f : 신문4 기사에 실린 참가자의 수
+g : 신문5 기사에 실린 참가자의 수
+
+Output
+상근이가 계산한 참가자의 수와 각 기사에 적혀있는 참가자 수의 차이 */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int a, b, c, d, e, f, g, mul;
+	cin >> a >> b;
+	cin >> c >> d >> e >> f >> g;
+	mul = a * b;
+
+	cout << c - mul << " " << d - mul << " " << e - mul << " " << f - mul << " " << g - mul << endl;
+}
