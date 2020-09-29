@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int l;
+	int n = 0;
+
+	cin >> l;
+	
+	if (l < 1 || l>1000000)
+		return 0;
+
+	while (1) {
+		if (l > 5) {
+			n++;
+			l -= 5;
+		}
+		else {
+			l = 0;
+			n++;
+			break;
+		}
+	}
+
+	cout << n;
+
+	return 0;
+}
+
+/*
+input : L(집까지의 거리)
+
+1분 -> 1~5
+
+
+output : 최소 t분. t이상의 가장 작은 정수.
+*/
