@@ -1,4 +1,5 @@
-/*#2914
+/*
+#2914
 Problem
 저작권이 있는 멜로디의 개수
 
@@ -7,7 +8,8 @@ a : 첫째 줄에 앨범에 수록된 곡의 개수
 b : 평균값
 
 Output
-c : 저작권이 있는 멜로디의 개수 */
+c : 저작권이 있는 멜로디의 개수 
+*/
 
 #include <iostream>
 using namespace std;
