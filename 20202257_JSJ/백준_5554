@@ -15,3 +15,15 @@ int main(void) {
 	return 0;
 	
 }
+
+
+/*
+초를 받아서 분으로 받아주기
+
+input : a = 집-학교, b = 학교-PC방, c = PC방-학원, d = 학원-집
+
+s=a+b+c+d
+
+output : s/60
+	s%60
+*/
