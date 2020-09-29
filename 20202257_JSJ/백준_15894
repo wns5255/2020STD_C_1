@@ -1,0 +1,15 @@
+#include <iostream>
+
+int main(void) {
+	unsigned int n;
+	std::cin >> n;
+	if (n < 1 || n>1000000000) return 0;
+	std::cout << 4 * n;
+	return 0;
+}
+
+/*
+input : n(가장 아랫부분의 정사각형 갯수), (1<=n<=10^9)
+
+output : 도형의 둘레(4n)
+*/
