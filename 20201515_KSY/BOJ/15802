@@ -1,0 +1,19 @@
+/*#15802
+Problem
+타노스가 당신 앞에 나타났을 때 당신의 생사여부
+
+Input 
+a : 사람의 이름
+
+Output
+b : 생사 여부*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int a, b;
+	cin >> a;
+	
+	cout << 1 << endl;
+}
