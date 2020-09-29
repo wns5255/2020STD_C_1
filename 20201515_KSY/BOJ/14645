@@ -1,0 +1,31 @@
+/*
+#14645
+Problem
+버스를 타는 인원의 수
+
+Input
+a : 정거장의 수
+b : 출발역에서 탑승하는 사람의 수
+c : i번째 정거장에서 탑승하는 인원
+d : 하차하는 인원
+
+Output
+종착역에 왔을 때, 버스 운전수의 이름
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int a, b, c, d;
+	cin >> a >> b;
+
+	for (int i = 0; i < a; i++) {
+		cin >> c >> d;
+	}
+
+	
+	cout << "비와이" << endl;
+	
+}
