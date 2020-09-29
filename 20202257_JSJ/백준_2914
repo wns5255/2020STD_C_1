@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int A, l;
+	cin >> A >> l;
+	if (A < 1 || l>100) return 0;
+	int n = (l-1) * A;
+	cout << n+1;
+	return 0;
+}
+
+/*
+input : A(앨범 수록된 곡의 갯수), 1<=A,
+l(평균값) = (저작권 있는 멜로디 개수)/(앨범에 수록된 곡의 개수), I<=100 
+
+output : n(저작권이 있는 멜로디의 갯수) = I * A -> 반올림
+(정수일 때는 제외) 
+*/
