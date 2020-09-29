@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+
+int main(void) {
+	int a, b, c, d;
+	cin >> a >> b >> c >> d;
+	int s = a + b + c + d;
+
+	if (s < 60 || s > (59 * 60 + 59))
+		return 0;
+
+	cout << s / 60 << endl;
+	cout << s % 60 << endl;
+	return 0;
+	
+}
