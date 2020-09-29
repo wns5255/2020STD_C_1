@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int y;
+	cin >> y;
+	
+	if (y > 3000 || y < 1000)return 0;
+
+	cout << y - 543;
+	return 0;
+}
+
+/*
+input : y(불기연도), 1000<=y<=3000
+서기 연도 = 불기연도 - 543
+
+output : 서기연도로 변환한 결과
+
+*/
