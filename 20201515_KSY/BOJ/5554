@@ -1,0 +1,32 @@
+/*
+#5554
+Problem 
+등교 시간을 초단위에서 분과 초를 활용하여 제대로 측정하기 
+
+Input
+a : 집 ~ 학교 이동시간
+b : 학교 ~ PC방
+c : PC방 ~ 학원
+d : 학원 ~ 집
+
+Output
+총 이동시간 x분 y초
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int a, b, c, d, sum, x, y;
+	cin >> a >> b >> c >> d;
+
+	sum = a + b + c + d;
+	 
+	x = sum / 60;
+	y = sum % 60;
+
+	cout << x << endl;
+	cout << y << endl;
+	
+}
