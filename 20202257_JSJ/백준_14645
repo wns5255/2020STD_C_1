@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int N, K, A, B;
+	cin >> N >> K;
+	if (N < 1 || N>100000 || K < 1 || K>10000) return 0;
+
+	for (int i = 0; i < N; i++) {
+		cin >> A >> B;
+	}
+	cout << "비와이";
+	return 0;
+}
+
+/*
+input : N(출발역과 종착역을 제외한 정거장의 수), 1<=N<=100000
+K(출발역에서 탑승하는 사람의 수), 1<=K<=10000
+A(N줄 동안 i번째 정거장에서 탑승하는 인원)
+B(하차하는 인원)
+
+output : 버스 운전수의 이름
+
+*/
