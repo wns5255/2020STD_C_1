@@ -1,0 +1,22 @@
+/*
+#109267
+Problem
+사이트에 준하가 가입하려고 하는 아이디가 이미 존재할 때, 그 때의 준하의 놀람을 출력하기
+
+Input
+a : 준하의 아이디
+
+Output
+??!
+*/
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main() {
+
+	string a;
+	cin >> a;
+	cout << a << "??!" << endl;
+}
