@@ -1,0 +1,127 @@
+#include<iostream>
+#include<cstring>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+class String
+{
+private:
+	int len;
+	char* str;
+public:
+	String();
+	String(const char* s);
+	String(const String& s);
+	~String();
+	String& operator= (const String& s);
+	String& operator+= (const String& s);
+	bool operator== (const String& s);
+	String operator+ (const String& s);
+
+	friend ostream& operator<< (ostream& os, const String& s);
+	friend istream& operator>> (istream& is, String& s);
+
+};
+
+String::String()
+{
+	len = 0;
+	str = NULL;
+}
+
+String::String(const char* s)
+{
+	len = strlen(s) + 1;
+	str = new char[len];
+	strcpy(str, s);
+}
+
+String::String(const String& s)
+{
+	len = s.len;
+	str = new char[len];
+	strcpy(str, s.str);
+}
+
+String::~String()
+{
+	if (str != NULL)
+		delete[]str;
+}
+
+String& String::operator= (const String& s)
+{
+	if (str != NULL)
+		delete[]str;
+	len = s.len;
+	str = new char[len];
+	strcpy(str, s.str);
+	return *this;
+}
+
+String& String::operator+= (const String& s)
+{
+	len += (s.len - 1);
+	char* tempstr = new char[len];
+	strcpy(tempstr, str);
+	strcat(tempstr, s.str);
+
+	if (str != NULL)
+		delete[]str;
+	str = tempstr;
+	return *this;
+}
+
+bool String::operator== (const String& s)
+{
+	return strcmp(str, s.str) ? false : true;
+}
+
+String String::operator+ (const String& s)
+{
+	char* tempstr = new char[len + s.len - 1];
+	strcpy(tempstr, str);
+	strcat(tempstr, s.str);
+
+	String temp(tempstr);
+	delete[]tempstr;
+	return temp;
+}
+
+ostream& operator<< (ostream& os, const String& s)
+{
+	os << s.str;
+	return os;
+}
+
+istream& operator>> (istream& is, String& s)
+{
+	char str[100];
+	is >> str;
+	s = String(str);
+	return is;
+}
+
+
+int main(void)
+{
+	String str1 = "I like "; //두번째 생성자를 이용하여 String객체 생성하고 str에 I like저장
+	String str2 = "string class ";  //두번째 생성자를 이용하여 String객체 생성하고 str에 string class저장
+	String str3 = str1 + str2; //+,=연산자가 오버로됨을 이용한다, strcat은 문자열을 이어붙이므로 str1에 str2를 이어붙인
+	//문자열을 생성하고 이를 반환한다 그리고 사용한 공간을 delete사용해 지워준다 그 반환된 값은 str3에 들어간다
+
+	cout << str1 << endl;//각각  I like, string class, I like string class가 출력된다
+	cout << str2 << endl;
+	cout << str3 << endl;
+
+	str1 += str2; //str1에 str2를 이어 붙인후에 이를 this포인터를 이용해 주소를 반환하고 이는 str1에 들어간다
+	if (str1 == str3)
+		cout << "동일 문자열!" << endl;
+	else
+		cout << "동일하지 않은 문자열!" << endl;
+	String str4;
+	cout << "문자열 입력: ";
+	cin >> str4;
+	cout << "입력한 문자열: " << str4 << endl;
+	return 0;
+}
