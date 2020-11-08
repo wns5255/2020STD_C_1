@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+
+
+void SelectionSort(int* a, const int n);
+void swap(int* a, int* b);
+int BinarySearch(int* a, const int x, const int left, const int right);
+
+int main(void)
+{
+	int a[7] = { 1,6,9,5,4,4,15 };
+
+	SelectionSort(a, 7);
+
+	cout << BinarySearch(a, 4, 0, 6) << endl; // 배열 이름 , 찾는 수 , 왼쪽 수 , 오른쪽 수
+	return 0;
+}
+
+
+void SelectionSort(int* a, const int n) // 선택 정렬
+{
+	for (int i = 0; i < n; i++)
+	{
+		int k = i;
+		for (int j = i + 1; j < n; j++)
+			if (a[j] <= a[k]) k = j;
+		swap(a[i], a[k]);
+	}
+	
+	cout << "정렬된 배열" << endl;
+
+	for (int j = 0; j < n; j++)
+	{
+		cout << a[j] << " ";
+	}
+	cout << endl;
+}
+
+
+void swap(int* a, int* b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+	return;
+}
+
+
+int BinarySearch(int* a, const int x, const int left, const int right) // 이원 탐색
+{
+	if (left <= right)
+	{
+		int middle = (left + right) / 2;
+
+		if (x < a[middle])
+		{
+			cout << "왼쪽" << endl;
+			return BinarySearch(a, x, left, middle - 1);
+		}
+		else if (x > a[middle]) 
+		{
+			cout << "오른쪽" << endl;
+			return BinarySearch(a, x, middle + 1, right);
+		}
+		else if (a[middle] == x)
+		{
+			cout << "중앙" << endl;
+			return middle;
+		}
+	}
+	cout << endl << "없음" << endl;
+	return -1;
+}
