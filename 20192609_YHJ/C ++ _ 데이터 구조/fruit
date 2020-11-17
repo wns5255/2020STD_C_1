@@ -1,0 +1,64 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main(void) {
+
+	int j, index, index_1;
+
+	srand(time(NULL));
+	
+	string name[8] = {"BSJ","PSY","OJH","LYH","YHJ","KSY","LHY","JSJ"};
+
+	int arr[8] = { 0 };
+
+	for (int i = 0; i < 50; i++)
+	{
+		if (i != 0 && i % 10 == 0)
+			cout << "\n";
+
+		int num = rand() % 8;
+
+		cout << num;
+
+		arr[num] += 1;
+
+		if (i == 49) {
+			cout << "\n\n";
+			cout << "50번째 방문 고객은 " << name[num] << "입니다.";
+		}
+	}
+
+	cout << "\n\n";
+
+	for (int i = 0; i < 8; i++) {
+
+		cout<< name[i] <<" : ";
+
+		cout << arr[i] << endl;
+	}
+
+	cout << "\n단골 고객은 ";
+
+	for (j = 0; j < 8; j++) {
+
+		int max = arr[0];
+
+		if (arr[j] > max)
+		{
+			max = arr[j];
+
+			index = j;
+		}
+
+	}
+
+	cout<< name[index] <<" 입니다. \n";
+
+
+
+	return 0;
+	
+}
+
